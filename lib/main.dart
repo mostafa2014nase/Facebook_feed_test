@@ -1,6 +1,6 @@
-import 'package:facebookfeed_app/facebook/comment_screen.dart';
+import 'package:facebookfeed_app/facebook/facebookWebScreen.dart';
+import 'package:facebookfeed_app/facebook/facebookWebTwo.dart';
 import 'package:facebookfeed_app/facebook/facebook_screen.dart';
-import 'package:facebookfeed_app/facebook/postWidget.dart';
 import 'package:facebookfeed_app/helper_backage/bloc/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +33,16 @@ class MyApp extends StatelessWidget {
                     primarySwatch: Colors.blue,
                   ),
                   routes: {
-                    "/": (context) => FacebookFeedScreen(),
+                    "/": (context) => LayoutBuilder(
+                          builder: (context, constrains) {
+                            print(constrains.minWidth.toInt());
+                            if(constrains.minWidth.toInt()<=600){
+                            return FacebookFeedMobileScreen();}
+                            if (constrains.minWidth.toInt()>600 &&constrains.minWidth.toInt()<=720){
+                            return FacebookFeedWebTwoScreen();}
+                            return FacebookFeedWebOneScreen();
+                          },
+                        ),
                   },
                 )));
   }
