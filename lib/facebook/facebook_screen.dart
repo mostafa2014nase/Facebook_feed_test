@@ -82,7 +82,12 @@ class FacebookFeedScreen extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            IconButton(onPressed: () {}, icon: Icon(Icons.home,color: Colors.blue,)),
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.home,
+                                  color: Colors.blue,
+                                )),
                             Container(
                               color: Colors.grey,
                               height: 2,
@@ -118,7 +123,8 @@ class FacebookFeedScreen extends StatelessWidget {
                           children: [
                             IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.store_mall_directory_outlined)),
+                                icon:
+                                    Icon(Icons.store_mall_directory_outlined)),
                             Container(
                               color: Colors.white,
                               height: 2,
@@ -143,7 +149,7 @@ class FacebookFeedScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              put_line(),
+              putLine(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -206,7 +212,7 @@ class FacebookFeedScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      put_line(),
+                      putLine(),
                       Container(
                         height: 40,
                         color: Colors.white,
@@ -226,10 +232,10 @@ class FacebookFeedScreen extends StatelessWidget {
                                   Text('Live'),
                                 ],
                               ),
-                              put_line(
-                                my_color: Colors.grey.withOpacity(0.5),
-                                line_width: 0.5,
-                                line_height: 30,
+                              putLine(
+                                myColor: Colors.grey.withOpacity(0.5),
+                                lineWidth: 0.5,
+                                lineHeight: 30,
                               ),
                               Row(
                                 children: [
@@ -242,10 +248,10 @@ class FacebookFeedScreen extends StatelessWidget {
                                   Text('Photo'),
                                 ],
                               ),
-                              put_line(
-                                my_color: Colors.grey.withOpacity(0.5),
-                                line_width: 0.5,
-                                line_height: 30,
+                              putLine(
+                                myColor: Colors.grey.withOpacity(0.5),
+                                lineWidth: 0.5,
+                                lineHeight: 30,
                               ),
                               Row(
                                 children: [
@@ -287,8 +293,9 @@ class FacebookFeedScreen extends StatelessWidget {
                                     [index],
                               );
                             },
-                            itemCount: cubit.picturesForPostsAndStories[
-                            "background image"].length),
+                            itemCount: cubit
+                                .picturesForPostsAndStories["background image"]
+                                .length),
                       ),
                       SizedBox(
                         height: 10,
@@ -301,78 +308,89 @@ class FacebookFeedScreen extends StatelessWidget {
                             cubit.picturesForPostsAndStories["circle"][index],
                             cubit.picturesForPostsAndStories["user name"]
                                 [index],
-                            index == 1 ?"yesterday":index == 2 ? "3 h":index == 4 ?"Just now":"6 h",
+                            index == 1
+                                ? "yesterday"
+                                : index == 2
+                                    ? "3 h"
+                                    : index == 4
+                                        ? "Just now"
+                                        : "6 h",
                             TextEditingController(),
                             [],
-                            index == 0?
-                            Container(
-                              height: 350,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(cubit
-                                      .picturesForPostsAndStories[
-                                  "background image"][index]),
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ):
-                            index == 1 || index == 7
-                                ? Padding(
-                                  padding: const EdgeInsets.only(left :10.0),
-                                  child: Text(
-                                      cubit.picturesForPostsAndStories["texts"]
-                                          [index]),
-                                )
-                                : index == 2
-                                    ? Container(
-                                        height: 350,
-                                        child: ListView.separated(
-                                          scrollDirection: Axis.horizontal,
-                                          itemBuilder: (context, ind) {
-                                            return Container(
-                                              width: 250,
-                                              padding: EdgeInsets.all(5),
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: NetworkImage(cubit
-                                                          .picturesForPostsAndStories[
-                                                      "pic posts"][ind]),
-                                                  fit: BoxFit.fill,
+                            index == 0
+                                ? Container(
+                                    height: 350,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            cubit.picturesForPostsAndStories[
+                                                "background image"][index]),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  )
+                                : index == 1 || index == 7
+                                    ? Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 10.0),
+                                        child: Text(
+                                            cubit.picturesForPostsAndStories[
+                                                "texts"][index]),
+                                      )
+                                    : index == 2
+                                        ? Container(
+                                            height: 350,
+                                            child: ListView.separated(
+                                              scrollDirection: Axis.horizontal,
+                                              itemBuilder: (context, ind) {
+                                                return Container(
+                                                  width: 250,
+                                                  padding: EdgeInsets.all(5),
+                                                  decoration: BoxDecoration(
+                                                    image: DecorationImage(
+                                                      image: NetworkImage(cubit
+                                                              .picturesForPostsAndStories[
+                                                          "pic posts"][ind]),
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              itemCount: 5,
+                                              separatorBuilder: (context, ind) {
+                                                return SizedBox(
+                                                  width: 5,
+                                                );
+                                              },
+                                            ),
+                                          )
+                                        : Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(10.0),
+                                                child: Text(cubit
+                                                        .picturesForPostsAndStories[
+                                                    "texts"][index]),
+                                              ),
+                                              Container(
+                                                height: 350,
+                                                decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: NetworkImage(cubit
+                                                            .picturesForPostsAndStories[
+                                                        "pic posts"][index]),
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
                                               ),
-                                            );
-                                          },
-                                          itemCount: 5,
-                                          separatorBuilder: (context, ind) {
-                                            return SizedBox(
-                                              width: 5,
-                                            );
-                                          },
-                                        ),
-                                      )
-                                    : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Text(
-                                              cubit.picturesForPostsAndStories["texts"]
-                                              [index]),
-                                        ),
-                                        Container(
-                                            height: 350,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: NetworkImage(cubit
-                                                        .picturesForPostsAndStories[
-                                                    "pic posts"][index]),
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
+                                            ],
                                           ),
-                                      ],
-                                    ),
-                            statueText: index == 0 ? "Changed his profile picture":"Updated his post",
+                            statueText: index == 0
+                                ? "Changed his profile picture"
+                                : "Updated his post",
                           );
                         },
                         separatorBuilder: (context, index) {

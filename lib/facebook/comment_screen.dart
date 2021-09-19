@@ -118,13 +118,13 @@ class _CommentWindowScreenState extends State<CommentWindowScreen> {
                             );
                           },
                           separatorBuilder: (context, index) {
-                            return put_line();
+                            return putLine();
                           },
                         ),
                       ),
                 Column(
                   children: [
-                    put_line(),
+                    putLine(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(

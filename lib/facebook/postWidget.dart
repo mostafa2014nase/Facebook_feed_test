@@ -162,8 +162,8 @@ class _PostWidgetScreenState extends State<PostWidgetScreen> {
               SizedBox(
                 height: 5,
               ),
-              put_line(
-                line_height: 1,
+              putLine(
+                lineHeight: 1,
               ),
               SizedBox(
                 height: 5,
