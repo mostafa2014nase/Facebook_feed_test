@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 Widget putLine({
@@ -85,6 +87,10 @@ Widget storyItem({
       ),
     ),
   );
+}
+
+String getOs() {
+  return Platform.operatingSystem;
 }
 /*
 Widget myRow() {

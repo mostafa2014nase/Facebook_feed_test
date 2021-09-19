@@ -14,6 +14,7 @@ class PostWidgetScreen extends StatefulWidget {
   final String postTime;
   final TextEditingController commentTyped;
   final List listCommentsSaved;
+  bool isThereComment;
 
   PostWidgetScreen(
     this.userPicture,
@@ -21,6 +22,7 @@ class PostWidgetScreen extends StatefulWidget {
     this.postTime,
     this.commentTyped,
     this.listCommentsSaved,
+    this.isThereComment,
     this.postWidget, {
     this.statueText = "",
   });
@@ -140,9 +142,9 @@ class _PostWidgetScreenState extends State<PostWidgetScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => CommentWindowScreen(
-                                          widget.commentTyped,
-                                          widget.listCommentsSaved,
-                                        )));
+                                        widget.commentTyped,
+                                        widget.listCommentsSaved,
+                                        widget.isThereComment)));
                           },
                           child: Padding(
                             padding:
@@ -209,6 +211,7 @@ class _PostWidgetScreenState extends State<PostWidgetScreen> {
                                 builder: (context) => CommentWindowScreen(
                                       widget.commentTyped,
                                       widget.listCommentsSaved,
+                                      widget.isThereComment,
                                     )));
                       },
                       child: Row(

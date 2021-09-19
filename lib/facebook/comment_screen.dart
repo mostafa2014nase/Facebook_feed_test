@@ -6,12 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommentWindowScreen extends StatefulWidget {
   final TextEditingController commentTyped;
-  bool isThereComment = false;
+  bool isThereComment ;
   final List listCommentsSaved;
 
   CommentWindowScreen(
     this.commentTyped,
     this.listCommentsSaved,
+      this.isThereComment
   );
 
   @override

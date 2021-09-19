@@ -5,7 +5,7 @@ import 'package:facebookfeed_app/modules_needed/modules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FacebookFeedScreen extends StatelessWidget {
+class FacebookFeedMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CubitClass cubit = CubitClass.get(context);
@@ -317,6 +317,7 @@ class FacebookFeedScreen extends StatelessWidget {
                                         : "6 h",
                             TextEditingController(),
                             [],
+                            false,
                             index == 0
                                 ? Container(
                                     height: 350,
